@@ -1,6 +1,7 @@
 {
   "version": 2,
   "projects": {
+    "assets": "libs/assets",
     "docs": "apps/docs",
     "docs-e2e": "apps/docs-e2e"
   }
