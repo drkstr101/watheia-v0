@@ -2,9 +2,10 @@
   "version": 2,
   "projects": {
     "assets": "libs/assets",
+    "blog": "apps/blog",
     "docs": "apps/docs",
-    "docs-e2e": "apps/docs-e2e",
-    "spectrum-docs-readme": "libs/spectrum/docs/readme",
-    "spectrum-ui-atom-button": "libs/spectrum/ui/atom/button"
+    "expo": "apps/expo",
+    "home": "apps/home",
+    "screenplay": "apps/screenplay"
   }
 }

@@ -1,0 +1,75 @@
+{
+  "root": "apps/expo",
+  "sourceRoot": "apps/expo",
+  "projectType": "application",
+  "targets": {
+    "build": {
+      "executor": "@nrwl/next:build",
+      "outputs": ["{options.outputPath}"],
+      "defaultConfiguration": "production",
+      "options": {
+        "root": "apps/expo",
+        "outputPath": "dist/apps/expo",
+        "assets": [
+          {
+            "glob": "**/*",
+            "input": "libs/assets/src",
+            "output": "."
+          }
+        ]
+      },
+      "configurations": {
+        "production": {}
+      }
+    },
+    "serve": {
+      "executor": "@nrwl/next:server",
+      "options": {
+        "buildTarget": "expo:build",
+        "dev": true
+      },
+      "configurations": {
+        "production": {
+          "buildTarget": "expo:build:production",
+          "dev": false
+        }
+      }
+    },
+    "export": {
+      "executor": "@nrwl/next:export",
+      "options": {
+        "buildTarget": "expo:build:production"
+      }
+    },
+    "test": {
+      "executor": "@nrwl/jest:jest",
+      "outputs": ["coverage/apps/expo"],
+      "options": {
+        "jestConfig": "apps/expo/jest.config.js",
+        "passWithNoTests": true
+      }
+    },
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "outputs": ["{options.outputFile}"],
+      "options": {
+        "lintFilePatterns": ["apps/expo/**/*.{ts,tsx,js,jsx}"]
+      }
+    },
+    "docker": {
+      "executor": "@nx-tools/nx-docker:build",
+      "options": {
+        "push": true,
+        "tags": ["watheialabs/expo:latest", "watheialabs/expo:0.0.1"]
+      }
+    },
+    "make": {
+      "executor": "@nrwl/workspace:run-commands",
+      "outputs": ["dist/apps/expo"],
+      "options": {
+        "command": "make expo"
+      }
+    }
+  },
+  "tags": []
+}
