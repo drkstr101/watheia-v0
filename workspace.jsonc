@@ -10,11 +10,11 @@
     /**
      * the name of the component workspace. used for development purposes.
      **/
-    "name": "Watheia",
+    "name": "my-workspace-name",
     /**
      * set the icon to be shown on the Bit server.
      **/
-    "icon": "https://www.datocms-assets.com/64528/1646636342-icon.png",
+    "icon": "https://static.bit.dev/bit-logo.svg",
     /**
      * default directory to place a component during `bit import` and `bit create`.
      * the following placeholders are available:
@@ -23,11 +23,11 @@
      * scope - scope name only, e.g. 'compilation'.
      * owner - owner name in bit.dev, e.g. 'teambit'.
      **/
-    "defaultDirectory": "libs/{scope}/{name}/src",
+    "defaultDirectory": "{scope}/{name}",
     /**
      * default scope for all components in workspace.
      **/
-    "defaultScope": "watheia.docs"
+    "defaultScope": "my-scope"
   },
   /**
    * main configuration for component dependency resolution.
@@ -39,11 +39,7 @@
     "packageManager": "teambit.dependencies/pnpm",
     "policy": {
       "dependencies": {},
-      "peerDependencies": {
-        "react": "^18.0.0",
-        "react-dom": "^18.0.0",
-        "@testing-library/react": "^13.0.0"
-      }
+      "peerDependencies": {}
     }
   },
   /**
@@ -62,21 +58,6 @@
        * uncomment to apply the chosen environment on all components.
        **/
       // "teambit.react/react": { }
-    },
-    "libs/spectrum": {
-      "defaultScope": "watheia.spectrum"
-    },
-    "tools": {
-      "defaultScope": "watheia.tools"
-    },
-    "env": {
-      "defaultScope": "watheia.env"
-    },
-    "{ui/**}": {
-      "teambit.react/react": {}
-    },
-    "{docs/**}": {
-      "teambit.mdx/mdx": {}
     }
   }
 }

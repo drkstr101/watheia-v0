@@ -9,7 +9,14 @@
       "defaultConfiguration": "production",
       "options": {
         "root": "apps/docs",
-        "outputPath": "dist/apps/docs"
+        "outputPath": "dist/apps/docs",
+        "assets": [
+          {
+            "glob": "**/*",
+            "input": "libs/assets/src",
+            "output": "."
+          }
+        ]
       },
       "configurations": {
         "production": {}
@@ -52,8 +59,15 @@
     "docker": {
       "executor": "@nx-tools/nx-docker:build",
       "options": {
-        "push": false,
-        "tags": ["dev.local/docs:latest", "dev.local/docs:0.0.1"]
+        "push": true,
+        "tags": ["watheialabs/docs:latest", "watheialabs/docs:0.0.1"]
+      }
+    },
+    "make": {
+      "executor": "@nrwl/workspace:run-commands",
+      "outputs": ["dist/apps/docs"],
+      "options": {
+        "command": "make docs"
       }
     }
   },

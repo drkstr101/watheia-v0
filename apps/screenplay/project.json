@@ -1,0 +1,35 @@
+{
+  "root": "apps/screenplay",
+  "sourceRoot": "apps/screenplay/src",
+  "projectType": "application",
+  "targets": {
+    "e2e": {
+      "executor": "@nrwl/cypress:cypress",
+      "options": {
+        "cypressConfig": "apps/screenplay/cypress.json",
+        "devServerTarget": "home:serve"
+      },
+      "configurations": {
+        "production": {
+          "devServerTarget": "home:serve:production"
+        }
+      }
+    },
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "outputs": ["{options.outputFile}"],
+      "options": {
+        "lintFilePatterns": ["apps/screenplay/**/*.{js,ts}"]
+      }
+    },
+    "docker": {
+      "executor": "@nx-tools/nx-docker:build",
+      "options": {
+        "push": true,
+        "tags": ["watheialabs/screenplay:latest", "watheialabs/screenplay:0.0.1"]
+      }
+    }
+  },
+  "tags": [],
+  "implicitDependencies": ["home"]
+}
