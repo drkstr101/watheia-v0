@@ -1,0 +1,43 @@
+{
+  "root": "libs/spectrum/ui/atom/button",
+  "sourceRoot": "libs/spectrum/ui/atom/button/src",
+  "projectType": "library",
+  "tags": [],
+  "targets": {
+    "build": {
+      "executor": "@nrwl/web:rollup",
+      "outputs": ["{options.outputPath}"],
+      "options": {
+        "outputPath": "dist/libs/spectrum/ui/atom/button",
+        "tsConfig": "libs/spectrum/ui/atom/button/tsconfig.lib.json",
+        "project": "libs/spectrum/ui/atom/button/package.json",
+        "entryFile": "libs/spectrum/ui/atom/button/src/index.ts",
+        "external": ["react/jsx-runtime"],
+        "rollupConfig": "@nrwl/react/plugins/bundle-rollup",
+        "compiler": "babel",
+        "assets": [
+          {
+            "glob": "libs/spectrum/ui/atom/button/README.md",
+            "input": ".",
+            "output": "."
+          }
+        ]
+      }
+    },
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "outputs": ["{options.outputFile}"],
+      "options": {
+        "lintFilePatterns": ["libs/spectrum/ui/atom/button/**/*.{ts,tsx,js,jsx}"]
+      }
+    },
+    "test": {
+      "executor": "@nrwl/jest:jest",
+      "outputs": ["coverage/libs/spectrum/ui/atom/button"],
+      "options": {
+        "jestConfig": "libs/spectrum/ui/atom/button/jest.config.js",
+        "passWithNoTests": true
+      }
+    }
+  }
+}

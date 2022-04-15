@@ -14,7 +14,10 @@
     "skipLibCheck": true,
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
-    "paths": {}
+    "paths": {
+      "@watheia/spectrum-docs-readme": ["libs/spectrum/docs/readme/src/index.ts"],
+      "@watheia/spectrum.ui.atom.button": ["libs/spectrum/ui/atom/button/src/index.ts"]
+    }
   },
   "exclude": ["node_modules", "tmp"]
 }

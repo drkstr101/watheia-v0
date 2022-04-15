@@ -1,4 +1,8 @@
 # Add files here to ignore them from prettier formatting
 
+/.yarn
 /dist
 /coverage
+/yarn.lock
+/tmp
+/pnpm-lock.yaml

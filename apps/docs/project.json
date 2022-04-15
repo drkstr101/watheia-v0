@@ -48,6 +48,13 @@
       "options": {
         "lintFilePatterns": ["apps/docs/**/*.{ts,tsx,js,jsx}"]
       }
+    },
+    "docker": {
+      "executor": "@nx-tools/nx-docker:build",
+      "options": {
+        "push": false,
+        "tags": ["dev.local/docs:latest", "dev.local/docs:0.0.1"]
+      }
     }
   },
   "tags": []
